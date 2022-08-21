@@ -18,7 +18,7 @@ Running the project
    python3 Giraffe-Detection.py /dev/video0 output_giraffe.mp4
 
 2. Check for the sentence "A giraffe has been detected." in the code to see if the camera detected a giraffe, like below:
-   ![Giraffe Detected](https://user-images.githubusercontent.com/111521162/185800333b33dd9bc-8257-4a54-b420-77da8c841693.png)
+   ![2022-08-21 (2)](https://user-images.githubusercontent.com/111521162/185802301-3693bc06-c873-450e-a315-8150ae99b10d.png)
 
 3. To view the mp4 file on your host computer, exit the nvidia and run the command:
    scp nvidia@<type in your own>:~/my-detection/output_giraffe.mp4 downloads
