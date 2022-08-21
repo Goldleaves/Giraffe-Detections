@@ -11,7 +11,7 @@ Making the project
 
 3. In the file, copy the following code in these images:
    ![Code1](https://user-images.githubusercontent.com/111521162/185799849-4e8b81cd-455c-4d26-b08d-5d940c91c852.png)
-   ![Code2](https://user-images.githubusercontent.com/111521162/185799869-53e61b2f-d8a8-479b-9360-5a862761d696.png)
+   ![2022-08-21 (1)](https://user-images.githubusercontent.com/111521162/185802390-6b90f978-3d61-4ab5-9236-d77b5ac51394.png)
 
 Running the project
 1. Run the following command (change the "/dev/video0" according to your camera device), which will run the code in the file and save it in an mp4 file:
