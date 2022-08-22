@@ -1,6 +1,6 @@
 # Giraffe Detections
 
-Over the last couple years, various giraffe species have become endangered. 2 subspecies have been listed as critically endangered and several others labeled endangered. Using Giraffe Detections, technology can detect and record the presence of giraffes in different areas of the wild to help scientists and experts better protect these animals. 
+Over the last couple pf years, various giraffe species have become endangered. 2 subspecies have been listed as critically endangered and several others labeled endangered. Using Giraffe Detections, technology can detect and record the presence of giraffes in different areas of the wild to help scientists and experts better protect these animals. 
 
 Making the project
 1. Log into nvidia after plugging in the jetson nano kit. Make a new directory:
