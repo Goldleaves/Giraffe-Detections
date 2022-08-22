@@ -22,42 +22,47 @@ except:
 	parser.print_help()
 	sys.exit(0)
 
-# create video output object 
+# create video output object
 output = jetson.utils.videoOutput(opt.output_URI, argv=sys.argv+is_headless)
-	
+
 # load the object detection network
 net = jetson.inference.detectNet(opt.network, sys.argv, opt.threshold)
 
 # create video sources
 input = jetson.utils.videoSource(opt.input_URI, argv=sys.argv)
 
+#count giraffe detections
+giraffe_count = 0
 
 # process frames until the user exits
 while True:
-	# capture the next image
-	img = input.Capture()
+        # capture the next image
+        img = input.Capture()
 
-	# detect objects in the image (with overlay)
-	detections = net.Detect(img, overlay=opt.overlay)
+        # detect objects in the image (with overlay)
+        detections = net.Detect(img, overlay=opt.overlay)
+
+        print("detected {:d} objects in image".format(len(detections)))
+
+        #Gives an alert if a giraffe has been detected in the wild
+        for detection in detections:
+                print(detection)
+                if detection.ClassID == 25:
+                        print("A giraffe has been detected.")
+                        giraffe_count += 1
+                        print(giraffe_count)
+        # render the image
+        output.Render(img)
+
+        # update the title bar
+        output.SetStatus("{:s} | Network {:.0f} FPS".format(opt.network, net.GetNetworkFPS()))
+
+        # print out performance info
+        net.PrintProfilerTimes()
+
+        # exit on input/output EOS
+        if not input.IsStreaming() or not output.IsStreaming():
+                break
+
+        print("camera detected giraffes" , giraffe_count , "times")
 	
-	print("detected {:d} objects in image".format(len(detections)))
-
-	#Gives an alert if a giraffe has been detected in the wild
-	for detection in detections:
-		print(detection)
-		if detection.ClassID == 25:
-			print("A giraffe has been detected.")
-	
-	# render the image
-	output.Render(img)
-
-	# update the title bar
-	output.SetStatus("{:s} | Network {:.0f} FPS".format(opt.network, net.GetNetworkFPS()))
-
-	# print out performance info
-	net.PrintProfilerTimes()
-
-	# exit on input/output EOS
-	if not input.IsStreaming() or not output.IsStreaming():
-		break
-
