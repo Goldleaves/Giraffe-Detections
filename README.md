@@ -26,6 +26,6 @@ Running the project
 ![2022-08-21 (3)](https://user-images.githubusercontent.com/111521162/185803743-456f6806-60c8-40b5-af28-9a7744cfdb23.png)
 
 5. To view the mp4 file on your host computer, exit the nvidia and run the command:
-   scp nvidia@<type in your own>:~/my-detection/output_giraffe.mp4 downloads
+   scp nvidia@(type in your own):~/my-detection/output_giraffe.mp4 downloads
    
 6. Check your downloads folder to view the video.
